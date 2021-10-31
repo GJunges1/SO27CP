@@ -4,6 +4,7 @@
 #include <semaphore.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <time.h>
 
 #define true 1
 #define NUM_THREADS 8
@@ -29,15 +30,21 @@ void RetiraJavali(int i){
 }
 
 void ColocaJavalis(int m){
+
+	unsigned int tempo = rand() % 3 + 1;
+
     sem_wait(&sem_cald_vazio);
-    sleep(3);
+    sleep(tempo);
     javalis+=m;
     sem_post(&sem_cald_cheio);
 }
 
 void ComeJavali(int i){
+
+	unsigned int tempo = rand() % 3 + 1;
+
     printf("Gaules %c(%d) comendo\n", nome[i], i);
-    sleep(1);
+    sleep(tempo);
 }
 
 void* Gaules(void* idx){
@@ -60,6 +67,8 @@ int main(void){
     sem_init(&sem_cald_vazio, 0, 1);
     pthread_t thread[NUM_THREADS];
     int i;
+	
+    srand(time(NULL));
     
     pthread_create(&thread[N], NULL, &Cozinheiro, (void*)(intptr_t) N);
     for(i=0; i<N; i++){
