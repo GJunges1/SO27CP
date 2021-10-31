@@ -31,7 +31,7 @@ void RetiraJavali(int i){
 
 void ColocaJavalis(int m){
 
-	unsigned int tempo = rand() % 3 + 1;
+    unsigned int tempo = rand() % 3 + 1;
 
     sem_wait(&sem_cald_vazio);
     sleep(tempo);
@@ -41,7 +41,7 @@ void ColocaJavalis(int m){
 
 void ComeJavali(int i){
 
-	unsigned int tempo = rand() % 3 + 1;
+    unsigned int tempo = rand() % 3 + 1;
 
     printf("Gaules %c(%d) comendo\n", nome[i], i);
     sleep(tempo);
