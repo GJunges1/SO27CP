@@ -11,10 +11,10 @@
 
 
 #define TAM_MAX_PIPE 65536
-const int N = (int) TAM_MAX_PIPE/20;
+const int N = (int) TAM_MAX_PIPE/16;
 
 typedef struct pipebuf{
-    char id[(int) (TAM_MAX_PIPE/20)];
+    char id[(int) (TAM_MAX_PIPE/16)];
 }pipebuf_t;
 
 typedef struct shmbuf{
